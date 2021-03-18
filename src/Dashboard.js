@@ -5,6 +5,7 @@ import Chart from 'react-google-charts';
 function Dashboard() {
 
   const smartDashboard = 'number of registrations per semester';
+  const animation= { duration: 1000, easing: 'out', startup: true }
 
   const [data, setData] = useState([
     ['Month', 'Quantity'],
@@ -22,7 +23,7 @@ function Dashboard() {
       <Chart
         width={'400px'}
         height={'300px'}
-        chartType={'PieChart'}
+        chartType="PieChart"
         data={data}
         options={{
           title: smartDashboard
@@ -32,13 +33,65 @@ function Dashboard() {
         <Chart 
           width={'400px'}
           height={'300px'}
-          chartType={'PieChart'}
+          chartType="PieChart"
           data={data}
           options={{
             title: smartDashboard,
             is3D: true
           }}
         />
+
+        <Chart
+          width={'400px'}
+          height={'300px'}
+          chartType="PieChart"
+          data={data}
+          options={{
+            title: smartDashboard,
+            pieHole: 0.4
+          }}
+          />
+
+        <Chart
+          width={'400px'}
+          height={'300px'}
+          chartType="BarChart"
+          data={data}
+          options={{
+            title: smartDashboard,
+            chartArea: { width: '50%'},
+            hAxis: { title: 'Quantity' },
+            vAxis: { title: 'Month' },
+            animation: animation
+          }}
+          />
+
+        <Chart
+          width={'400px'}
+          height={'300px'}
+          chartType="LineChart"
+          data={data}
+          options={{
+            title: smartDashboard,
+            hAxis: { title: 'Month' }, 
+            vAxis: { title: 'Quantity'},
+            animation: animation
+          }}
+          />
+
+        <Chart 
+          width={'400px'}
+          height={'300px'}
+          chartType="AreaChart"
+          data={data}
+          options={{
+            title: smartDashboard,
+            hAxis: { title: 'Month'},
+            vAxis: { title: 'Quantity'},
+            animation: animation
+          }}
+          />
+     
     </>
   );
     
