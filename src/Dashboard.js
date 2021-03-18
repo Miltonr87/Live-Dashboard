@@ -26,7 +26,19 @@ function Dashboard() {
         data={data}
         options={{
           title: smartDashboard
-        }} />
+        }} 
+        />
+
+        <Chart 
+          width={'400px'}
+          height={'300px'}
+          chartType={'PieChart'}
+          data={data}
+          options={{
+            title: smartDashboard,
+            is3D: true
+          }}
+        />
     </>
   );
     
